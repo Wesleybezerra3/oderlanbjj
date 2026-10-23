@@ -1,0 +1,24 @@
+.placeholder {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding: var(--space-sm);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), var(--color-border) 50%, transparent calc(50% + 1px)),
+    linear-gradient(to top left, transparent calc(50% - 1px), var(--color-border) 50%, transparent calc(50% + 1px)),
+    var(--color-placeholder);
+}
+
+.label {
+  max-width: 24ch;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+

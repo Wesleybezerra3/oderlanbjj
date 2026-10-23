@@ -1,0 +1,53 @@
+.steps {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.stepText {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.stepText p {
+  color: var(--color-text-muted);
+}
+
+.cta {
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+
+@media (min-width: 30rem) {
+  .cta {
+    width: auto;
+  }
+}
+
+@media (min-width: 48rem) {
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+  }
+}
+

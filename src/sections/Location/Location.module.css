@@ -1,0 +1,38 @@
+.layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-sm);
+  align-content: start;
+}
+
+.address {
+  display: grid;
+  gap: var(--space-xs);
+  font-style: normal;
+  font-size: var(--font-size-lg);
+}
+
+.mapsLink {
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+@media (min-width: 30rem) {
+  .mapsLink {
+    width: auto;
+    justify-self: start;
+  }
+}
+
+@media (min-width: 48rem) {
+  .layout {
+    grid-template-columns: 2fr 3fr;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+}
+

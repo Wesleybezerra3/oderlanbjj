@@ -1,0 +1,147 @@
+/*
+ * Full-viewport hero. The sticky header sits above it, so its height is
+ * subtracted to keep the hero exactly one screen tall.
+ * svh avoids the jump caused by mobile browser toolbars; vh is the fallback.
+ */
+.hero {
+  --hero-text: #ffffff;
+  --hero-text-muted: rgba(255, 255, 255, 0.85);
+  /* Must match the background of the section right after the hero (About). */
+  --hero-fade-to: var(--color-surface);
+
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100svh - var(--header-height));
+  overflow: hidden;
+  color: var(--hero-text);
+  background: var(--color-primary);
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+/*
+ * Fade overlay: darkens the image for text contrast and dissolves the bottom
+ * edge into the page background, blending the hero into the next section.
+ */
+.background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: #000000c5;
+  /* background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.45) 40%,
+    rgba(0, 0, 0, 0.8) 75%,
+    var(--hero-fade-to) 100%
+  ); */
+}
+
+/*
+ * The photo is portrait with the group in the upper-middle area.
+ * Anchoring near the top keeps faces visible when "cover" crops it on wide screens,
+ * while the copy sits on the empty mat area at the bottom.
+ */
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.backgroundPlaceholder {
+  display: grid;
+  place-items: start center;
+  height: 100%;
+  padding-top: var(--space-lg);
+  background:
+    linear-gradient(to top right, transparent calc(50% - 1px), #6b6b6b 50%, transparent calc(50% + 1px)),
+    linear-gradient(to top left, transparent calc(50% - 1px), #6b6b6b 50%, transparent calc(50% + 1px)),
+    #4a4a4a;
+}
+
+.backgroundPlaceholder span {
+  position: relative;
+  z-index: 1;
+  max-width: 30ch;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.6);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+/* Bottom padding keeps the copy inside the dark band, above the fade-to-background */
+.content {
+  display: grid;
+  gap: var(--space-sm);
+  padding-block: var(--space-xl) calc(var(--space-xl) * 1.75);
+}
+
+.eyebrow {
+  color: var(--hero-text-muted);
+}
+
+.title {
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 36rem;
+  font-size: var(--font-size-lg);
+  color: var(--hero-text-muted);
+}
+
+.actions {
+  display: grid;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.primaryButton {
+  border-color: var(--hero-text);
+  background: var(--hero-text);
+  color: var(--color-primary);
+}
+
+.primaryButton:hover {
+  background: transparent;
+  color: var(--hero-text);
+}
+
+.secondaryButton {
+  border-color: var(--hero-text);
+  background: transparent;
+  color: var(--hero-text);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline-color: var(--hero-text);
+}
+
+@media (min-width: 30rem) {
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 60rem) {
+  .content {
+    padding-block: var(--space-xl) calc(var(--space-xl) * 1.25);
+  }
+}

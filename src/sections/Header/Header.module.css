@@ -1,0 +1,149 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--header-height);
+  gap: var(--space-sm);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+}
+
+.logoImage {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+
+@media (min-width: 60rem) {
+  .logoImage {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 2.75rem;
+  padding: 0 var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 1.125rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.menuIcon {
+  position: relative;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.menuIcon::before {
+  top: -6px;
+}
+
+.menuIcon::after {
+  top: 6px;
+}
+
+/* Mobile: collapsible panel below the bar */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: none;
+  padding: var(--space-sm) var(--container-padding) var(--space-md);
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav[data-open='true'] {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.navList {
+  display: grid;
+}
+
+.navLink {
+  display: block;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-surface);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.navCta {
+  width: 100%;
+}
+
+/* Desktop: inline navigation, toggle hidden */
+@media (min-width: 60rem) {
+  .menuToggle {
+    display: none;
+  }
+
+  .nav,
+  .nav[data-open='true'] {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 0;
+    border: 0;
+  }
+
+  .navList {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .navLink {
+    padding: var(--space-xs) 0;
+    border: 0;
+  }
+
+  .navCta {
+    width: auto;
+    min-height: 2.75rem;
+    padding-inline: var(--space-sm);
+  }
+}
+

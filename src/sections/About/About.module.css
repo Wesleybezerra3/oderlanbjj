@@ -1,0 +1,28 @@
+.layout {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.media {
+  max-width: 28rem;
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-sm);
+  max-width: 38rem;
+}
+
+.paragraph {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .layout {
+    grid-template-columns: minmax(16rem, 2fr) 3fr;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+}
+

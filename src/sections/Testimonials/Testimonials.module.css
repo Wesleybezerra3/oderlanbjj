@@ -1,0 +1,31 @@
+.list {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.testimonial {
+  display: grid;
+  gap: var(--space-sm);
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--color-primary);
+}
+
+.quote {
+  font-size: var(--font-size-lg);
+}
+
+.author {
+  display: grid;
+  font-size: var(--font-size-sm);
+}
+
+.author span {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

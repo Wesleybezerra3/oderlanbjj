@@ -1,0 +1,55 @@
+.footer {
+  padding-block: var(--space-lg) var(--space-md);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.layout {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.brand {
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* Decorative here (alt=""): the academy name is rendered as text right below. */
+.logoImage {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  margin-bottom: var(--space-xs);
+}
+
+.name {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
+.links a {
+  display: inline-block;
+  padding-block: 0.25rem;
+}
+
+.legal {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 48rem) {
+  .layout {
+    grid-template-columns: 2fr 2fr 1fr;
+    align-items: start;
+  }
+}
+

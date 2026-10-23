@@ -1,0 +1,60 @@
+.days {
+  display: grid;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Mobile: one row per day, label on the left and sessions stacked on the right */
+.day {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dayName {
+  font-size: var(--font-size-base);
+}
+
+.sessions {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.session {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-sm);
+}
+
+.time {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Desktop: days become columns, reading like a weekly calendar */
+@media (min-width: 60rem) {
+  .days {
+    grid-template-columns: repeat(6, 1fr);
+    border-top: 0;
+    border-left: 1px solid var(--color-border);
+  }
+
+  .day {
+    grid-template-columns: 1fr;
+    align-content: start;
+    padding: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+  }
+
+  .dayName {
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .session {
+    flex-direction: column;
+  }
+}
+
