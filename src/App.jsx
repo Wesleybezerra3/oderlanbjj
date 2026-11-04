@@ -15,7 +15,7 @@ import Footer from './sections/Footer/Footer'
 
 function App() {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) return undefined
 
     const scrollReveal = ScrollReveal()
     scrollReveal.reveal('main section', {
