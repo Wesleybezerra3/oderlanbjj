@@ -1,18 +1,21 @@
 /*
- * Wireframe tokens — intentionally grayscale.
- * When the visual identity is defined, only these variables need to change.
+ * Core brand colors: black, white, and the red used in the academy logo.
  */
+
 :root {
   --color-primary: #1a1a1a;
   --color-primary-contrast: #ffffff;
-  --color-secondary: #555555;
+  --color-secondary: #b50917;
+  --color-accent: #e30613;
+  --color-accent-contrast: #ffffff;
   --color-background: #ffffff;
   --color-surface: #f2f2f2;
   --color-placeholder: #e0e0e0;
   --color-text: #1a1a1a;
   --color-text-muted: #5c5c5c;
+  --color-text-title: #b50917;
   --color-border: #cfcfcf;
-  --color-focus: #1a1a1a;
+  --color-focus: var(--color-accent);
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -180,12 +183,19 @@ a {
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.button:hover {
+  box-shadow: 0 0.4rem 1rem rgb(0 0 0 / 16%);
 }
 
 .button--primary {
-  background: var(--color-primary);
-  color: var(--color-primary-contrast);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .button--primary:hover {
@@ -194,12 +204,14 @@ a {
 }
 
 .button--secondary {
+  border-color: var(--color-accent);
   background: transparent;
   color: var(--color-primary);
 }
 
 .button--secondary:hover {
-  background: var(--color-surface);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .skip-link {

@@ -11,11 +11,11 @@ export const academy = {
     srcSet: '/logo-96.png 1x, /logo-192.png 2x',
   },
   city: 'Mirueira/Paulista-PE',
-  address: '[Rua, número — Bairro, Cidade/UF]',
+  address: 'Rua castro alves, 17 — Mirueira, Paulista-PE',
   phoneDisplay: '[(00) 00000-0000]',
   whatsappUrl: 'https://wa.me/5500000000000',
-  instagramUrl: 'https://instagram.com/',
-  mapsUrl: 'https://maps.google.com/',
+  instagramUrl: 'https://www.instagram.com/oderlan_jiujitsu_acamedia_/',
+  mapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Rua%20castro%20alves%2C%2017%20%E2%80%94%20Mirueira%2C%20Paulista-PE',
 }
 
 export const primaryCta = {
@@ -33,15 +33,15 @@ export const navigationLinks = [
 
 export const hero = {
   eyebrow: `Jiu-Jitsu em ${academy.city}`,
-  title: 'Oderlan Jiu-Jitsu',
+  title: 'ODERLAN JIU-JITSU',
   description:
-    'Jiu-Jitsu de qualidade, para todas as idades e níveis de experiência. Venha treinar com a gente!',
+    'Força, Foco e Disciplina',
   secondaryCta: { label: 'Ver horários', href: '#horarios' },
   // Set to the image path (e.g. '/hero.webp') once a real photo is available.
   // Recommended: landscape, at least 1920px wide, WebP/AVIF, under ~300 KB.
   // Enhanced versions generated from the original hero.jpeg (levels, contrast, sharpening).
-  imageSrc: '/hero-1200.jpg',
-  imageSrcSet: '/hero-1200.jpg 1200w, /hero-1920.jpg 1920w',
+  imageSrc: '/hero2.png',
+  // imageSrcSet: '/hero1.jpeg 1200w, /hero1.jpeg 1920w',
   imageAlt: 'Professor e alunos da Oderlan Jiu-Jitsu reunidos no tatame da academia',
 }
 
@@ -57,68 +57,61 @@ export const about = {
 }
 
 export const classGroups = [
-  {
-    name: '[Turma Adulto]',
-    audience: '[Para quem é esta turma]',
-    description: '[Breve descrição do foco das aulas.]',
-  },
-  {
-    name: '[Turma Kids]',
-    audience: '[Faixa etária]',
-    description: '[Breve descrição do foco das aulas.]',
-  },
-  {
-    name: '[Turma Feminina]',
-    audience: '[Para quem é esta turma]',
-    description: '[Breve descrição do foco das aulas.]',
-  },
+ {
+  imgSrc:'/classAdults1.jpeg',
+  name: 'Turma Adulto',
+  audience: 'Adultos de todos os níveis',
+  description: 'Aulas focadas em técnica, condicionamento físico, disciplina e evolução constante, respeitando o nível de cada aluno.',
+},
+{
+  imgSrc:'/classKids.jpeg',
+  name: 'Turma Kids',
+  audience: 'Crianças e adolescentes',
+  description: 'Aulas adaptadas para desenvolver coordenação, disciplina, confiança e respeito de forma segura e dinâmica.',
+},
+{
+  imgSrc:'/classKick.jpeg',
+  name: 'Muay Thai / Kickboxing',
+  audience: 'Iniciantes e praticantes de todos os níveis',
+  description: 'Treinos de trocação com foco em técnica, condicionamento, defesa, agilidade e evolução física.',
+},
 ]
 
 export const weeklySchedule = [
   {
     day: 'Segunda',
     sessions: [
-      { time: '[00:00]', group: '[Turma]' },
-      { time: '[00:00]', group: '[Turma]' },
+      { time: '18h ás 19h', group: 'Kids' },
+      { time: '20h40h ás 21h50', group: 'Adultos' },
     ],
-  },
-  {
-    day: 'Terça',
-    sessions: [{ time: '[00:00]', group: '[Turma]' }],
   },
   {
     day: 'Quarta',
     sessions: [
-      { time: '[00:00]', group: '[Turma]' },
-      { time: '[00:00]', group: '[Turma]' },
+      { time: '18h ás 19h', group: 'Kids' },
+      { time: '20h30h ás 21h40', group: 'Adultos' },
     ],
   },
   {
-    day: 'Quinta',
-    sessions: [{ time: '[00:00]', group: '[Turma]' }],
-  },
-  {
-    day: 'Sexta',
-    sessions: [{ time: '[00:00]', group: '[Turma]' }],
-  },
-  {
     day: 'Sábado',
-    sessions: [{ time: '[00:00]', group: '[Turma]' }],
+    sessions: [{ time: '14h ás 15h20', group: 'Kids' },
+      { time: '15h40 ás 17h', group: 'Adultos' }
+    ],
   },
 ]
 
 export const trialClassSteps = [
   {
     title: 'Chame no WhatsApp',
-    description: '[Informe seu nome e a turma de interesse.]',
+    description: 'Informe seu nome e a turma de interesse.',
   },
   {
     title: 'Escolha o horário',
-    description: '[Combinamos o melhor dia para sua primeira aula.]',
+    description: 'Combinamos o melhor dia para sua primeira aula.',
   },
   {
     title: 'Venha treinar',
-    description: '[O que trazer / vestir na aula experimental.]',
+    description: 'Chegue 10 minutos antes, traga roupas leves e disposição para aprender.',
   },
 ]
 
@@ -156,7 +149,6 @@ export const faqItems = [
 ]
 
 export const finalCta = {
-  title: '[Chamada final: convite para a aula experimental]',
-  description: '[Reforço curto do benefício e da facilidade de começar.]',
+  title: 'Comece sua jornada hoje',
+description: 'Agende sua aula experimental e venha conhecer nossos treinos na prática. O primeiro passo para evoluir é começar.',
 }
-

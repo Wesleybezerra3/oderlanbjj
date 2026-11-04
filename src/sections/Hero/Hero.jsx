@@ -1,4 +1,5 @@
 import { hero, primaryCta } from '../../content/siteContent'
+import MotionLink from '../../components/MotionLink/MotionLink'
 import styles from './Hero.module.css'
 
 function Hero() {
@@ -32,17 +33,17 @@ function Hero() {
         </h1>
         <p className={styles.description}>{hero.description}</p>
         <div className={styles.actions}>
-          <a
+          <MotionLink
             href={primaryCta.href}
             className={`button ${styles.primaryButton}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             {primaryCta.label}
-          </a>
-          <a href={hero.secondaryCta.href} className={`button ${styles.secondaryButton}`}>
+          </MotionLink>
+          <MotionLink href={hero.secondaryCta.href} className={`button ${styles.secondaryButton}`}>
             {hero.secondaryCta.label}
-          </a>
+          </MotionLink>
         </div>
       </div>
     </section>

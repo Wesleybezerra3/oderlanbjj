@@ -12,7 +12,7 @@
   position: relative;
   isolation: isolate;
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   min-height: calc(100vh - var(--header-height));
   min-height: calc(100svh - var(--header-height));
   overflow: hidden;
@@ -34,7 +34,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-color: #000000c5;
+  background-color: #00000098;
   /* background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.25) 0%,
@@ -53,7 +53,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  background-position: center;
+  object-position: center;
 }
 
 .backgroundPlaceholder {
@@ -80,9 +81,13 @@
 
 /* Bottom padding keeps the copy inside the dark band, above the fade-to-background */
 .content {
-  display: grid;
-  gap: var(--space-sm);
-  padding-block: var(--space-xl) calc(var(--space-xl) * 1.75);
+  /* outline: auto; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: var(--space-sm); */
+  /* padding-block: var(--space-xl) calc(var(--space-xl) * 1.75); */
 }
 
 .eyebrow {
@@ -98,6 +103,7 @@
   max-width: 36rem;
   font-size: var(--font-size-lg);
   color: var(--hero-text-muted);
+  font-weight: 600;
 }
 
 .actions {
@@ -107,14 +113,15 @@
 }
 
 .primaryButton {
-  border-color: var(--hero-text);
-  background: var(--hero-text);
-  color: var(--color-primary);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .primaryButton:hover {
-  background: transparent;
-  color: var(--hero-text);
+  border-color: var(--color-secondary);
+  background: var(--color-secondary);
+  color: var(--color-accent-contrast);
 }
 
 .secondaryButton {

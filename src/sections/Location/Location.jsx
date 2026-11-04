@@ -1,8 +1,10 @@
-import ImagePlaceholder from '../../components/ImagePlaceholder/ImagePlaceholder'
 import { academy } from '../../content/siteContent'
+import MotionLink from '../../components/MotionLink/MotionLink'
 import styles from './Location.module.css'
 
 function Location() {
+  const mapQuery = encodeURIComponent(academy.address)
+
   return (
     <section id="localizacao" className="section" aria-labelledby="location-title">
       <div className={`container ${styles.layout}`}>
@@ -15,22 +17,28 @@ function Location() {
               {academy.phoneDisplay}
             </a>
           </address>
-          <a
+          <MotionLink
             href={academy.mapsUrl}
             className={`button button--secondary ${styles.mapsLink}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             Abrir rota no Google Maps
-          </a>
+          </MotionLink>
         </div>
 
-        {/* Replace with a lazy-loaded Google Maps iframe (loading="lazy") */}
-        <ImagePlaceholder label="[Mapa da localização]" ratio="16 / 10" />
+        <div className={styles.mapFrame}>
+          <iframe
+            src={`https://maps.google.com/maps?q=${mapQuery}&output=embed`}
+            title={`Mapa da localização da academia: ${academy.address}`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
       </div>
     </section>
   )
 }
 
 export default Location
-

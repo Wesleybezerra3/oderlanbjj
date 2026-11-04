@@ -7,14 +7,17 @@ function Classes() {
       <div className="container">
         <header className="section-header">
           <p className="eyebrow">Turmas</p>
-          <h2 id="classes-title">[Encontre a turma certa para você]</h2>
-          <p>[Frase curta explicando que há opções por idade e nível.]</p>
+          <h2 id="classes-title">Encontre a turma certa para você</h2>
+          <p>Treinos para diferentes idades e níveis, com turmas pensadas para cada fase da sua evolução</p>
         </header>
 
         <ul className={styles.list}>
-          {classGroups.map(({ name, audience, description }) => (
+          {classGroups.map(({ imgSrc,name, audience, description }) => (
             <li key={name}>
               <article className={styles.classGroup}>
+                <div className={styles.containerImg}>
+                <img src={imgSrc} alt="" />
+                </div>
                 <h3>{name}</h3>
                 <p className={styles.audience}>{audience}</p>
                 <p className={styles.description}>{description}</p>

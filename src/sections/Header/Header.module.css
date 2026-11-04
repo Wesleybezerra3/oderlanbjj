@@ -47,6 +47,14 @@
   font-weight: 600;
   color: var(--color-text);
   cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.menuToggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .menuIcon,
@@ -60,6 +68,12 @@
 
 .menuIcon {
   position: relative;
+  background: currentColor;
+  transition: background-color var(--transition-fast);
+}
+
+.menuToggle[data-open='true'] .menuIcon {
+  background: transparent;
 }
 
 .menuIcon::before,
@@ -67,6 +81,9 @@
   content: '';
   position: absolute;
   left: 0;
+  transition:
+    top var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .menuIcon::before {
@@ -77,21 +94,50 @@
   top: 6px;
 }
 
-/* Mobile: collapsible panel below the bar */
 .nav {
+  display: none;
+}
+
+.mobileNav {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  display: none;
-  padding: var(--space-sm) var(--container-padding) var(--space-md);
-  background: var(--color-background);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.nav[data-open='true'] {
   display: grid;
   gap: var(--space-sm);
+  max-height: 0;
+  padding: 0 var(--container-padding);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  background: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    padding 260ms ease,
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+
+.mobileNav[data-open='true'] {
+  max-height: 32rem;
+  padding: var(--space-sm) var(--container-padding) var(--space-md);
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menuToggle[data-open='true'] .menuIcon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menuToggle[data-open='true'] .menuIcon::after {
+  top: 0;
+  transform: rotate(-45deg);
 }
 
 .navList {
@@ -121,7 +167,7 @@
   }
 
   .nav,
-  .nav[data-open='true'] {
+  .mobileNav {
     position: static;
     display: flex;
     align-items: center;
@@ -130,9 +176,19 @@
     border: 0;
   }
 
+  .mobileNav {
+    display: none;
+  }
+
   .navList {
     display: flex;
     gap: var(--space-md);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobileNav {
+      transition: none;
+    }
   }
 
   .navLink {
@@ -146,4 +202,3 @@
     padding-inline: var(--space-sm);
   }
 }
-

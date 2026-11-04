@@ -1,4 +1,5 @@
 import { primaryCta, trialClassSteps } from '../../content/siteContent'
+import MotionLink from '../../components/MotionLink/MotionLink'
 import styles from './TrialClass.module.css'
 
 function TrialClass() {
@@ -24,18 +25,17 @@ function TrialClass() {
           ))}
         </ol>
 
-        <a
+        <MotionLink
           href={primaryCta.href}
           className={`button button--primary ${styles.cta}`}
           target="_blank"
           rel="noopener noreferrer"
         >
           {primaryCta.label}
-        </a>
+        </MotionLink>
       </div>
     </section>
   )
 }
 
 export default TrialClass
-

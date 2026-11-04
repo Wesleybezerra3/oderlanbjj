@@ -17,18 +17,18 @@
   opacity: 0.85;
 }
 
-/* Inverted button for the dark background */
 .button {
   width: 100%;
   margin-top: var(--space-sm);
-  border-color: var(--color-primary-contrast);
-  background: var(--color-primary-contrast);
-  color: var(--color-primary);
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 .button:hover {
-  background: transparent;
-  color: var(--color-primary-contrast);
+  border-color: var(--color-primary-contrast);
+  background: var(--color-primary-contrast);
+  color: var(--color-primary);
 }
 
 .button:focus-visible {
@@ -40,4 +40,3 @@
     width: auto;
   }
 }
-
