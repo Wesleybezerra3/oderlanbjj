@@ -22,6 +22,11 @@ export const academy = {
   )}`,
 }
 
+export const developer = {
+  name: 'Wesley Bezerra',
+  instagramUrl: 'https://www.instagram.com/wesleyy_bezerra8/',
+}
+
 export const primaryCta = {
   label: 'Agendar aula experimental',
   href: academy.whatsappUrl,

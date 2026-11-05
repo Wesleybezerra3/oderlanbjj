@@ -8,11 +8,13 @@
 .layout {
   display: grid;
   gap: var(--space-lg);
+  min-width: 0;
 }
 
 .brand {
   display: grid;
   gap: 0.2rem;
+  min-width: 0;
 }
 
 .logoImage {
@@ -24,8 +26,9 @@
 
 .name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.06em;
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  letter-spacing: 0.04em;
+  overflow-wrap: anywhere;
 }
 
 .street {
@@ -37,9 +40,9 @@
 }
 
 .contacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm) var(--space-md);
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
 }
 
 .contacts a {
@@ -47,7 +50,7 @@
   padding-block: 0.25rem;
   font-family: var(--font-display);
   font-size: 1.125rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-decoration: none;
 }
 
@@ -56,6 +59,9 @@
 }
 
 .legal {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
   margin-top: var(--space-lg);
   padding-top: var(--space-md);
   border-top: 1px solid rgb(255 255 255 / 16%);
@@ -63,11 +69,29 @@
   font-size: var(--font-size-sm);
 }
 
+.legal p {
+  overflow-wrap: anywhere;
+}
+
+.legal a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.legal a:hover {
+  color: var(--color-faixa);
+}
+
 .whatsappFab {
   display: none;
 }
 
 @media (max-width: 59.99rem) {
+  .footer {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom));
+  }
+
   .whatsappFab {
     position: fixed;
     right: max(1rem, env(safe-area-inset-right));
@@ -94,13 +118,23 @@
   }
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 60rem) {
   .layout {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto);
     align-items: end;
   }
 
   .contacts {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: end;
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-xs) var(--space-md);
   }
 }

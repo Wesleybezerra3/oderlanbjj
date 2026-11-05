@@ -1,4 +1,4 @@
-import { academy, primaryCta } from '../../content/siteContent'
+import { academy, developer, primaryCta } from '../../content/siteContent'
 import styles from './Footer.module.css'
 
 function Footer() {
@@ -42,6 +42,12 @@ function Footer() {
       <div className={`container ${styles.legal}`}>
         <p>
           © {currentYear} {academy.name}
+        </p>
+        <p>
+          Site por{' '}
+          <a href={developer.instagramUrl} target="_blank" rel="noopener noreferrer">
+            {developer.name}
+          </a>
         </p>
       </div>
 
