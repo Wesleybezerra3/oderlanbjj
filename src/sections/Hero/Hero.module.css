@@ -119,8 +119,8 @@
 }
 
 .primaryButton:hover {
-  border-color: var(--color-secondary);
-  background: var(--color-secondary);
+  border-color: var(--color-faixa-hover);
+  background: var(--color-faixa-hover);
   color: var(--color-accent-contrast);
 }
 

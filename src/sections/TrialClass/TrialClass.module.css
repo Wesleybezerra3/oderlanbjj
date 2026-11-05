@@ -1,6 +1,6 @@
 .steps {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .step {
@@ -12,12 +12,22 @@
 
 .number {
   display: grid;
-  place-items: center;
+  justify-items: start;
+  gap: 0.4rem;
+  padding-top: 0.15rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.faixa {
+  display: block;
   width: 2.5rem;
-  height: 2.5rem;
-  border: 2px solid var(--color-primary);
-  border-radius: 50%;
-  font-weight: 700;
+  height: 0.4rem;
+  background: var(--color-faixa);
 }
 
 .stepText {
@@ -42,7 +52,7 @@
 
 @media (min-width: 48rem) {
   .steps {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-lg);
   }
 
@@ -50,4 +60,3 @@
     grid-template-columns: 1fr;
   }
 }
-

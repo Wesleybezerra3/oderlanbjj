@@ -7,7 +7,6 @@ function TrialClass() {
     <section className="section" aria-labelledby="trial-title">
       <div className="container">
         <header className="section-header">
-          <p className="eyebrow">Aula experimental</p>
           <h2 id="trial-title">Como começar a treinar</h2>
         </header>
 
@@ -15,6 +14,7 @@ function TrialClass() {
           {trialClassSteps.map(({ title, description }, index) => (
             <li key={title} className={styles.step}>
               <span className={styles.number} aria-hidden="true">
+                <span className={styles.faixa} />
                 {index + 1}
               </span>
               <div className={styles.stepText}>

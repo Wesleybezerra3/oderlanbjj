@@ -10,12 +10,16 @@ export const academy = {
     src: '/logo-96.png',
     srcSet: '/logo-96.png 1x, /logo-192.png 2x',
   },
-  city: 'Mirueira/Paulista-PE',
-  address: 'Rua castro alves, 17 — Mirueira, Paulista-PE',
-  phoneDisplay: '[(00) 00000-0000]',
-  whatsappUrl: 'https://wa.me/5500000000000',
+  city: 'Mirueira, Paulista-PE',
+  street: 'Rua Castro Alves, 17',
+  address: 'Rua Castro Alves, 17 — Mirueira, Paulista-PE',
+  phoneDisplay: '(81) 9718-9110',
+  phoneUrl: 'tel:+558197189110',
+  whatsappUrl: 'https://wa.me/558197189110',
   instagramUrl: 'https://www.instagram.com/oderlan_jiujitsu_acamedia_/',
-  mapsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Rua%20castro%20alves%2C%2017%20%E2%80%94%20Mirueira%2C%20Paulista-PE',
+  mapsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    'Rua Castro Alves, 17 — Mirueira, Paulista-PE',
+  )}`,
 }
 
 export const primaryCta = {
@@ -23,7 +27,7 @@ export const primaryCta = {
   href: academy.whatsappUrl,
 }
 
-export const navigationLinks = [
+const allNavigationLinks = [
   { label: 'Sobre', href: '#sobre' },
   { label: 'Turmas', href: '#turmas' },
   { label: 'Horários', href: '#horarios' },
@@ -32,10 +36,9 @@ export const navigationLinks = [
 ]
 
 export const hero = {
-  eyebrow: `Jiu-Jitsu em ${academy.city}`,
+  location: 'Mirueira, Paulista-PE',
   title: 'ODERLAN JIU-JITSU',
-  description:
-    'Força, Foco e Disciplina',
+  description: 'Disciplina gera resultados',
   secondaryCta: { label: 'Ver horários', href: '#horarios' },
   // Set to the image path (e.g. '/hero.webp') once a real photo is available.
   // Recommended: landscape, at least 1920px wide, WebP/AVIF, under ~300 KB.
@@ -53,28 +56,37 @@ export const about = {
     'Na Oderlan Jiu-Jitsu, trabalhamos com metodologia eficaz e um ambiente acolhedor, onde os alunos podem desenvolver suas habilidades técnicas e físicas, além de cultivar valores como respeito, disciplina e esforço.',
   ],
   imageSrc: '/prof.png',
-  imageAlt: 'Professor Oderlan e alunos da Oderlan Jiu-Jitsu reunidos no tatame da academia',
+  imageAlt: 'Professor Oderlan de kimono, sentado no tatame da academia',
 }
 
 export const classGroups = [
- {
-  imgSrc:'/classAdults1.jpeg',
-  name: 'Turma Adulto',
-  audience: 'Adultos de todos os níveis',
-  description: 'Aulas focadas em técnica, condicionamento físico, disciplina e evolução constante, respeitando o nível de cada aluno.',
-},
-{
-  imgSrc:'/classKids.jpeg',
-  name: 'Turma Kids',
-  audience: 'Crianças e adolescentes',
-  description: 'Aulas adaptadas para desenvolver coordenação, disciplina, confiança e respeito de forma segura e dinâmica.',
-},
-{
-  imgSrc:'/classKick.jpeg',
-  name: 'Muay Thai / Kickboxing',
-  audience: 'Iniciantes e praticantes de todos os níveis',
-  description: 'Treinos de trocação com foco em técnica, condicionamento, defesa, agilidade e evolução física.',
-},
+  {
+    imgSrc: '/classAdults1.jpeg',
+    imageAlt: 'Alunos da turma adulto de Oderlan Jiu-Jitsu alinhados no tatame, de kimono',
+    name: 'Turma Adulto',
+    audience: 'Adultos de todos os níveis',
+    description: 'Técnica, condicionamento e evolução no ritmo de cada aluno.',
+    ctaLabel: 'Quero a turma Adulto',
+    whatsappUrl: `${academy.whatsappUrl}?text=${encodeURIComponent('Olá! Quero a turma Adulto.')}`,
+  },
+  {
+    imgSrc: '/classKids.jpeg',
+    imageAlt: 'Crianças da turma kids reunidas no tatame da Oderlan Jiu-Jitsu',
+    name: 'Turma Kids',
+    audience: 'Crianças e adolescentes',
+    description: 'Coordenação, confiança e respeito, com treino seguro e dinâmico.',
+    ctaLabel: 'Quero a turma Kids',
+    whatsappUrl: `${academy.whatsappUrl}?text=${encodeURIComponent('Olá! Quero a turma Kids.')}`,
+  },
+  {
+    imgSrc: '/classKick.jpeg',
+    imageAlt: 'Alunos de Muay Thai e Kickboxing em treino na academia',
+    name: 'Muay Thai / Kickboxing',
+    audience: 'Iniciantes e todos os níveis',
+    description: 'Trocação com foco em técnica, defesa e condicionamento.',
+    ctaLabel: 'Quero Muay Thai / Kickboxing',
+    whatsappUrl: `${academy.whatsappUrl}?text=${encodeURIComponent('Olá! Quero treinar Muay Thai / Kickboxing.')}`,
+  },
 ]
 
 export const weeklySchedule = [
@@ -115,40 +127,33 @@ export const trialClassSteps = [
   },
 ]
 
-// Leave empty until real, authorized testimonials are available — the section hides itself.
-export const testimonials = [
-  {
-    quote: '[Depoimento real de aluno — substituir ou remover]',
-    author: '[Nome do aluno]',
-    detail: '[Turma / tempo de treino]',
-  },
-  {
-    quote: '[Depoimento real de aluno — substituir ou remover]',
-    author: '[Nome do aluno]',
-    detail: '[Turma / tempo de treino]',
-  },
-]
+const PLACEHOLDER_COPY = /^\s*\[.*\]\s*$/
 
-export const faqItems = [
-  {
-    question: 'Preciso ter experiência para começar?',
-    answer: '[Resposta da academia.]',
-  },
-  {
-    question: 'Preciso ter kimono na primeira aula?',
-    answer: '[Resposta da academia.]',
-  },
-  {
-    question: 'A partir de qual idade as crianças podem treinar?',
-    answer: '[Resposta da academia.]',
-  },
-  {
-    question: 'Quais são os valores das mensalidades?',
-    answer: '[Resposta da academia ou orientação para consultar pelo WhatsApp.]',
-  },
-]
+export function isPublishedCopy(value) {
+  return typeof value === 'string' && value.trim() !== '' && !PLACEHOLDER_COPY.test(value.trim())
+}
+
+// Leave empty until real, authorized testimonials are available — the section hides itself.
+export const testimonials = []
+
+// Leave empty until the academy supplies real answers — the FAQ section hides itself.
+export const faqItems = []
+
+export const publishedFaqItems = faqItems.filter(
+  ({ question, answer }) => isPublishedCopy(question) && isPublishedCopy(answer),
+)
+
+export const publishedTestimonials = testimonials.filter(
+  ({ quote, author }) => isPublishedCopy(quote) && isPublishedCopy(author),
+)
+
+export const navigationLinks = allNavigationLinks.filter(
+  ({ href }) => href !== '#duvidas' || publishedFaqItems.length > 0,
+)
 
 export const finalCta = {
-  title: 'Comece sua jornada hoje',
-description: 'Agende sua aula experimental e venha conhecer nossos treinos na prática. O primeiro passo para evoluir é começar.',
+  title: 'Primeira aula pelo WhatsApp',
+  description: 'Diga seu nome e a turma. Combinamos o horário e você treina.',
+  imageSrc: '/hero2.png',
+  imageAlt: 'Tatame vermelho da academia Oderlan Jiu-Jitsu em Mirueira',
 }

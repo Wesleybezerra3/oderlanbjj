@@ -1,41 +1,79 @@
 .list {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
-/* Each class group is a distinct offer, so a bordered block is justified here. */
-.classGroup {
+.panel {
   display: grid;
-  gap: var(--space-xs);
-  height: 100%;
-  padding: var(--space-md);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  align-content: start;
+  gap: var(--space-sm);
 }
-.containerImg{
- width: 100%;
- /* aspect-ratio: 16/9; */
- overflow: hidden;
-  height: 250px;
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--color-placeholder);
 }
-.containerImg img{
+
+.photo img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
+  object-fit: cover;
+  object-position: center 35%;
 }
-.audience {
+
+.caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3.5rem var(--space-sm) var(--space-sm);
+  background: linear-gradient(to top, rgb(14 14 16 / 88%) 0%, rgb(14 14 16 / 35%) 55%, transparent 100%);
+  color: #fff;
+}
+
+.caption h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+}
+
+.caption p {
+  margin-top: 0.2rem;
+  font-size: var(--font-size-sm);
   font-weight: 600;
+  color: rgb(255 255 255 / 88%);
 }
 
 .description {
+  max-width: 36ch;
   color: var(--color-text-muted);
+}
+
+.cta {
+  justify-self: start;
+  color: var(--color-faixa);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: 1.5px;
+}
+
+.cta:hover {
+  color: var(--color-faixa-hover);
 }
 
 @media (min-width: 48rem) {
   .list {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+  }
+
+  .photo {
+    aspect-ratio: 4 / 5;
   }
 }
-

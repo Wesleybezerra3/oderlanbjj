@@ -1,9 +1,9 @@
-import { testimonials } from '../../content/siteContent'
+import { publishedTestimonials } from '../../content/siteContent'
 import styles from './Testimonials.module.css'
 
 function Testimonials() {
   // Never show fabricated social proof: the section only renders with real entries.
-  if (testimonials.length === 0) return null
+  if (publishedTestimonials.length === 0) return null
 
   return (
     <section className="section section--surface" aria-labelledby="testimonials-title">
@@ -14,7 +14,7 @@ function Testimonials() {
         </header>
 
         <ul className={styles.list}>
-          {testimonials.map(({ quote, author, detail }, index) => (
+          {publishedTestimonials.map(({ quote, author, detail }, index) => (
             <li key={`${author}-${index}`}>
               <figure className={styles.testimonial}>
                 <blockquote className={styles.quote}>

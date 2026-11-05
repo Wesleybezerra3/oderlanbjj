@@ -1,4 +1,4 @@
-import { academy, navigationLinks } from '../../content/siteContent'
+import { academy, primaryCta } from '../../content/siteContent'
 import styles from './Footer.module.css'
 
 function Footer() {
@@ -18,24 +18,18 @@ function Footer() {
             className={styles.logoImage}
           />
           <p className={styles.name}>{academy.name}</p>
-          <p>{academy.address}</p>
+          <p className={styles.street}>{academy.street}</p>
+          <p className={styles.city}>{academy.city}</p>
         </div>
 
-        <nav aria-label="Rodapé">
-          <ul className={styles.links}>
-            {navigationLinks.map(({ label, href }) => (
-              <li key={href}>
-                <a href={href}>{label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <ul className={styles.links}>
+        <ul className={styles.contacts}>
           <li>
             <a href={academy.instagramUrl} target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
+          </li>
+          <li>
+            <a href={academy.phoneUrl}>{academy.phoneDisplay}</a>
           </li>
           <li>
             <a href={academy.whatsappUrl} target="_blank" rel="noopener noreferrer">
@@ -50,9 +44,17 @@ function Footer() {
           © {currentYear} {academy.name}
         </p>
       </div>
+
+      <a
+        href={primaryCta.href}
+        className={styles.whatsappFab}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        WhatsApp
+      </a>
     </footer>
   )
 }
 
 export default Footer
-

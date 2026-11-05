@@ -1,11 +1,13 @@
-import { faqItems } from '../../content/siteContent'
+import { publishedFaqItems } from '../../content/siteContent'
 import styles from './FAQ.module.css'
 
 /*
  * Native <details>/<summary> gives keyboard and screen reader support with zero JS.
- * Swap for Radix Accordion only if single-open behavior or animated height is required.
+ * The section is omitted until real answers exist — same rule as testimonials.
  */
 function FAQ() {
+  if (publishedFaqItems.length === 0) return null
+
   return (
     <section id="duvidas" className="section section--surface" aria-labelledby="faq-title">
       <div className={`container ${styles.layout}`}>
@@ -15,7 +17,7 @@ function FAQ() {
         </header>
 
         <div className={styles.list}>
-          {faqItems.map(({ question, answer }) => (
+          {publishedFaqItems.map(({ question, answer }) => (
             <details key={question} className={styles.item}>
               <summary className={styles.question}>{question}</summary>
               <p className={styles.answer}>{answer}</p>
@@ -28,4 +30,3 @@ function FAQ() {
 }
 
 export default FAQ
-

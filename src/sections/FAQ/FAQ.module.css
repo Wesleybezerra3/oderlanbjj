@@ -3,7 +3,7 @@
 }
 
 .list {
-  border-top: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-ink);
 }
 
 .item {
@@ -17,7 +17,10 @@
   gap: var(--space-sm);
   min-height: 3.5rem;
   padding-block: var(--space-sm);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   cursor: pointer;
   list-style: none;
 }
@@ -29,7 +32,10 @@
 .question::after {
   content: '+';
   flex-shrink: 0;
+  color: var(--color-faixa);
+  font-family: var(--font-sans);
   font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1;
   transition: transform var(--transition-fast);
 }
@@ -43,3 +49,8 @@
   color: var(--color-text-muted);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .question::after {
+    transition: none;
+  }
+}

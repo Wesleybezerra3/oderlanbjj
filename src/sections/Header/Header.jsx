@@ -1,17 +1,26 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { academy, navigationLinks, primaryCta } from '../../content/siteContent'
 import MotionLink from '../../components/MotionLink/MotionLink'
 import styles from './Header.module.css'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const shouldReduceMotion = useReducedMotion()
+  const isSolid = isScrolled || isMenuOpen
 
   const closeMenu = () => setIsMenuOpen(false)
 
+  useEffect(() => {
+    const update = () => setIsScrolled(window.scrollY > 16)
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => window.removeEventListener('scroll', update)
+  }, [])
+
   return (
-    <header className={styles.header}>
+    <header className={styles.header} data-solid={isSolid}>
       <div className={`container ${styles.bar}`}>
         <a href="#inicio" className={styles.logo} onClick={closeMenu}>
           <img
@@ -58,20 +67,13 @@ function Header() {
           </MotionLink>
         </nav>
 
-        <motion.nav
+        <nav
           id="main-navigation"
           aria-label="Navegação principal"
           aria-hidden={!isMenuOpen}
           inert={!isMenuOpen}
           className={styles.mobileNav}
           data-open={isMenuOpen}
-          layout="size"
-          transition={{
-            layout: {
-              duration: shouldReduceMotion ? 0 : 0.28,
-              ease: [0.22, 1, 0.36, 1],
-            },
-          }}
         >
           <ul className={styles.navList}>
             {navigationLinks.map(({ label, href }) => (
@@ -91,7 +93,7 @@ function Header() {
           >
             {primaryCta.label}
           </MotionLink>
-        </motion.nav>
+        </nav>
       </div>
     </header>
   )

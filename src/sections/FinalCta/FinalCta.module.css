@@ -20,8 +20,8 @@
 .button {
   width: 100%;
   margin-top: var(--space-sm);
-  border-color: var(--color-accent);
-  background: var(--color-accent);
+  border-color: var(--color-faixa);
+  background: var(--color-faixa);
   color: var(--color-accent-contrast);
 }
 
